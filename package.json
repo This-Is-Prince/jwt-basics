@@ -1,0 +1,23 @@
+{
+  "name": "jwt-basics",
+  "version": "1.0.0",
+  "main": "dist/app.js",
+  "scripts": {
+    "dev": "nodemon dist/app.js",
+    "start": "node dist/app.js",
+    "watch": "tsc -w"
+  },
+  "repository": "https://github.com/This-Is-Prince/jwt-basics.git",
+  "author": "This-Is-Prince <this.is.kumar.prince@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.8.2",
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "mongoose": "^6.5.3"
+  }
+}
