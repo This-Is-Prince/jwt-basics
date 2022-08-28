@@ -1,5 +1,5 @@
 import { ErrorRequestHandler } from "express";
-import CustomError from "../errors";
+import { CustomError } from "../errors";
 
 const errorHandlerMiddleware: ErrorRequestHandler = (err, req, res, next) => {
   if (err instanceof CustomError) {

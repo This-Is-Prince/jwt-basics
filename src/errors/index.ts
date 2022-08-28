@@ -1,9 +1,5 @@
-class CustomError extends Error {
-  statusCode: number;
-  constructor(message: string, statusCode: number) {
-    super(message);
-    this.statusCode = statusCode;
-  }
-}
+import BadError from "./bad-request";
+import CustomError from "./custom-error";
+import UnauthenticatedError from "./unauthenticated";
 
-export default CustomError;
+export { BadError, CustomError, UnauthenticatedError };

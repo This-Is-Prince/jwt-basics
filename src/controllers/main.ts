@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import CustomError from "../errors";
+import { BadError } from "../errors";
 import { JwtPayload, sign, verify } from "jsonwebtoken";
 import { config } from "dotenv";
 config();
@@ -12,7 +12,7 @@ const login: RequestHandler = async (req, res) => {
   // check in the controller
 
   if (!username || !password) {
-    throw new CustomError("Please provide email and password", 400);
+    throw new BadError("Please provide email and password");
   }
 
   // just for demo, normally provided by DB!!!!

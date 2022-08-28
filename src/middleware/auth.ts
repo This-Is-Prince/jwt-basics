@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import { JwtPayload, verify } from "jsonwebtoken";
-import CustomError from "../errors";
+import {UnauthenticatedError} from "../errors";
 
 declare global {
   namespace Express {
@@ -14,7 +14,7 @@ declare global {
 const authenticationMiddleware: RequestHandler = async (req, res, next) => {
   let { authorization } = req.headers;
   if (!authorization || !authorization.startsWith("Bearer")) {
-    throw new CustomError("No token provided", 401);
+    throw new UnauthenticatedError("No token provided");
   }
 
   const token = authorization.split(" ")[1];
@@ -28,7 +28,7 @@ const authenticationMiddleware: RequestHandler = async (req, res, next) => {
     req.user = { id, name: username };
     next();
   } catch (error) {
-    throw new CustomError("Not authorized to access this route", 401);
+    throw new UnauthenticatedError("Not authorized to access this route");
   }
 };
 
